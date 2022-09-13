@@ -61,6 +61,7 @@ let rec seval (inss : sinstr list) (stack : int list) =
     | (SSwap   :: insr, i2::i1::stkr) -> seval insr (i1::i2::stkr)
     | _ -> failwith "seval: too few operands on stack"
 
+//Exercise PLC 2.4
 let assemble list =
     let mapper s =
         match s with
@@ -84,8 +85,7 @@ let ints = assemble (scomp e1 [])
 
 intsToFile ints "is1.txt"
 
-//BCD
-//2.1
+//Exercise BCD 2.1
 //a : /\b0*42/
 //b : /^(?!0*42\b)\d+/
 //c : /^(0*[5-9]\d|(0+)?[1-9][0-9]{2,}|0*4[3-9])$/
