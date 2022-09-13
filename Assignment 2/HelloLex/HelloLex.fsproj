@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="fsharp\HelloLex3.fsl" />
+		<None Include="HelloLex.fs" />
+		<None Include="fsharp\HelloLex2.fs" />
+		<Compile Include="fsharp\HelloLex3.fs" />
+		<None Include="fsharp\HelloLex2.fsl" />
+		<None Include="fsharp\HelloLex.fsl" />
+	</ItemGroup>
+
+	<!--<ItemGroup>
+		<FsLex Include="fsharp\HelloLex.fsl">
+		</FsLex>
+	</ItemGroup>-->
+
+	<ItemGroup>
+		<PackageReference Include="FsLexYacc" Version="10.2.0" />
+		<PackageReference Include="FsLexYacc.Runtime" Version="10.2.0" />
+	</ItemGroup>
+
+</Project>
