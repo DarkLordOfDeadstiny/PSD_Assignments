@@ -334,11 +334,9 @@ let intsToFile (inss : int list) (fname : string) =
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
 
+// Assignment 3.6
+
 open Parse
 
 let compString (s) : sinstr list =
       scomp (fromString s) [] |> List.rev
-
-// let main s = 
-//       printf("%A", (compString s[0]).ToString())
-//       0
