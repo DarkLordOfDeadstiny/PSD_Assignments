@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="test.fsx" />
     <Compile Include="Absyn.fs" />
     <Compile Include="ExprPar.fs" />
     <Compile Include="ExprLex.fs" />
