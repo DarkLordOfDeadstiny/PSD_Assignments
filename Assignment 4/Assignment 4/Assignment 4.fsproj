@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+
+	<Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+
+	<ItemGroup>
+		<FsYacc Include="FunPar.fsy">
+			<OtherFlags>--module FunPar</OtherFlags>
+		</FsYacc>
+		<FsLex Include="FunLex.fsl">
+			<OtherFlags>--unicode</OtherFlags>
+		</FsLex>
+		<Compile Include="Absyn.fs" />
+		<Compile Include="Fun.fs" />
+		<Compile Include="FunPar.fs" />
+		<Compile Include="FunLex.fs" />
+		<Compile Include="Parse.fs" />
+		<Compile Include="ParseAndRun.fs" />
+		<None Include="test.fsx" />
+		<Compile Include="Program.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="FsLexYacc" Version="10.2.0" />
+	  <PackageReference Include="FsLexYacc.Runtime" Version="10.2.0" />
+	  <PackageReference Update="FSharp.Core" Version="6.0.6" />
+	</ItemGroup>
+
+</Project>

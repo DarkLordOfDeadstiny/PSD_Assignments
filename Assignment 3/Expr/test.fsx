@@ -1,6 +1,5 @@
-#r "FsLexYacc.Runtime.dll"
+#r "nuget: FsLexYacc.Runtime"
 
-//C:\Users\patr7\Desktop\Programmer som data\PSD_Assignments\Assignment 3\Expr\FsLexYacc.Runtime.dll
 
 #load "Absyn.fs"
 #load "ExprPar.fs"
