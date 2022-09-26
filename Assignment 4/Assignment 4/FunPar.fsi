@@ -25,7 +25,6 @@ type token =
   | THEN
   | TRUE
   | CSTBOOL of (bool)
-  | ARGS of (string list)
   | NAME of (string)
   | CSTINT of (int)
 type tokenId = 
@@ -53,7 +52,6 @@ type tokenId =
     | TOKEN_THEN
     | TOKEN_TRUE
     | TOKEN_CSTBOOL
-    | TOKEN_ARGS
     | TOKEN_NAME
     | TOKEN_CSTINT
     | TOKEN_end_of_input
@@ -63,6 +61,7 @@ type nonTerminalId =
     | NONTERM_Main
     | NONTERM_Expr
     | NONTERM_AtExpr
+    | NONTERM_NAMES
     | NONTERM_AppExpr
     | NONTERM_ExprList
     | NONTERM_Const
