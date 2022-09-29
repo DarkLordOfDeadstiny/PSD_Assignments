@@ -1,4 +1,7 @@
 ﻿using System;
+
+// 5.1 c# part, oh you probably know because it is a .cs file :)
+
 int[] xs = { 3, 5, 12 };
 int[] ys = { 2, 3, 4, 7 };
 

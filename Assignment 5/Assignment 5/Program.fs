@@ -12,4 +12,4 @@ let merge (l1, l2) =
             else merge' l1 t2 (acc @ [h2])
     merge' l1 l2 []
 
-merge ([3;5;12], [2;3;4;7])
+//merge ([3;5;12], [2;3;4;7])

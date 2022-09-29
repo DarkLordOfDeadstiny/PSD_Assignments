@@ -9,13 +9,21 @@
 	<Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
 
 	<ItemGroup>
-		<None Include="test.fsx" />
 		<FsYacc Include="FunPar.fsy">
-			<OtherFlags>--module Parser</OtherFlags>
+			<OtherFlags>--module FunPar</OtherFlags>
 		</FsYacc>
 		<FsLex Include="FunLex.fsl">
 			<OtherFlags>--unicode</OtherFlags>
 		</FsLex>
+		<Compile Include="Absyn.fs" />
+		<Compile Include="Fun.fs" />
+		<Compile Include="FunPar.fs" />
+		<Compile Include="FunLex.fs" />
+		<Compile Include="Parse.fs" />
+		<Compile Include="HigherFun.fs" />
+		<Compile Include="ParseAndRunHigher.fs" />
+		<Compile Include="TypeInference.fs" />
+		<None Include="test.fsx" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 

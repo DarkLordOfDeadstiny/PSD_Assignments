@@ -27,6 +27,8 @@ let keyword s =
     | "if"    -> IF
     | "in"    -> IN
     | "let"   -> LET
+    | "fn"    -> FUN
+    | "fun"   -> FUN
     | "not"   -> NOT
     | "then"  -> THEN
     | "true"  -> CSTBOOL true
@@ -43,6 +45,8 @@ rule Token = parse
                       commentDepth := 1; 
                       SkipComment lexbuf; Token lexbuf }
   | '='             { EQ }
+  | "->"            { ARROW }
+  | "=>"            { ARROW }
   | "<>"            { NE }
   | '>'             { GT }
   | '<'             { LT }
