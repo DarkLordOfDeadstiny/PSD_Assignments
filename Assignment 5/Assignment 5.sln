@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Assignment 5", "Assignment 5\Assignment 5.fsproj", "{19E30DA2-6252-48E0-AD89-27D7DA3F5DF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sorter", "sorter\sorter.csproj", "{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,12 @@ Global
 		{19E30DA2-6252-48E0-AD89-27D7DA3F5DF6}.FsLexYacc|Any CPU.Build.0 = FsLexYacc|Any CPU
 		{19E30DA2-6252-48E0-AD89-27D7DA3F5DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19E30DA2-6252-48E0-AD89-27D7DA3F5DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.FsLexYacc|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.FsLexYacc|Any CPU.Build.0 = Debug|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACEFAE8C-C65B-4678-B552-678B2CB9AAA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
