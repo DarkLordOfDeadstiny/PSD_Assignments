@@ -11,6 +11,13 @@
 open TypeInference
 open ParseAndRunHigher
 
+let parseAndTypeCheck (s : string) =
+    let e = Parse.fromString s
+    let t = inferType e
+    printfn "%A" t
+
+
+
 // 5.1
 
 let merge (l1, l2) =
@@ -28,15 +35,6 @@ merge ([3;5;12], [2;3;4;7])
 
 
 // 5.7
-
-
-
-
-let parseAndTypeCheck (s : string) =
-    let e = Parse.fromString s
-    let t = inferType e
-    printfn "%A" t
-
 
 parseAndTypeCheck "let x = [1;2;3;4;5] in x + 4"
 parseAndTypeCheck "let x = 3 in x + t"
@@ -71,3 +69,74 @@ in add 2 end" |> fromString |> run
 "let add x = fun y -> x+y in add 2 5 end" |> fromString |> run
 
 "let add = fun x -> fun y -> x+y in add 2 5 end" |> fromString |> run
+
+// 6.5 -----------------------
+
+// a --------------
+
+"let f x = 1 in f f end" |> parseAndTypeCheck
+
+"let f g = g g in f end" |> parseAndTypeCheck
+
+"let f x =
+  let g y = y
+  in g false end
+in f 42 end" |> parseAndTypeCheck
+
+"let f x =
+  let g y = if true then y else x
+  in g false end
+in f 42 end" |> parseAndTypeCheck
+
+
+"let f x =
+  let g y = if true then y else x
+  in g false end
+in f true end" |> parseAndTypeCheck
+
+// b --------------
+
+//bool -> bool
+"let f x = true = x in f end" |> parseAndTypeCheck
+
+// int -> int
+"let f x = 1 + x in f end" |> parseAndTypeCheck
+ 
+//(int -> (int -> int))
+"let f x =
+  let g y = if true then y+1 else x+1
+  in g end
+in f end" |> parseAndTypeCheck
+
+//('h -> ('g -> 'h))
+"let f x =
+  let g y = x
+  in g end
+in f end" |> parseAndTypeCheck
+
+//('g -> ('h -> 'h))
+"let f x =
+  let g y = y
+  in g end
+in f end" |> parseAndTypeCheck
+
+// (’a -> ’b) -> (’b -> ’c) -> (’a -> ’c) 
+// should be correct, but fun z -> y (x z) is not typed correctly
+"let g x =
+  let h y = fun z -> y (x z)
+  in  h end
+in g end" |> parseAndTypeCheck
+
+let f (x: 'a -> 'b) (y: 'b -> 'c): ('a -> 'c) = 
+    fun z -> y (x z)
+
+
+// ('j -> 'k)
+"let g x =
+  let h y = y x
+  in fun z -> h z end
+in g end" |> parseAndTypeCheck
+
+// 'b
+// i guess this is wrong?
+"fun x -> x" |> parseAndTypeCheck

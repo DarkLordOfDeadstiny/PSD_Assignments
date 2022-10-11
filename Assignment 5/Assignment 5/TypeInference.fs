@@ -277,6 +277,11 @@ let rec typ (lvl : int) (env : tenv) (e : expr) : typ =
       unify TypB (typ lvl env e1);
       unify t2 t3;
       t2
+    | Fun (name, expr) ->
+      let lvl1 = lvl
+      let fTyp = TypV(newTypeVar lvl1)
+      let fBodyEnv = (name, TypeScheme([], fTyp)) :: env
+      typ (lvl1) (fBodyEnv) expr
     | Letfun(f, x, fBody, letBody) -> 
       let lvl1 = lvl + 1
       let fTyp = TypV(newTypeVar lvl1)
