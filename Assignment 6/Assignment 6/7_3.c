@@ -33,19 +33,23 @@ void main(int n) {
     print freq[2];
     print freq[3];
     println;
+	
+	print sum;
+	println;
+	print --sum;
 }
 
 void arrsum(int n, int arr[], int *sum) {
     int i;
     *sum = 0;
-    for (i = 0; i < n; i = i + 1) {
+    for (i = 0; i < n; ++i) {
         *sum = *sum + arr[i];
     }
 }
 
 void squares(int n, int arr[]) {
     int i;
-    for (i = 0; i < n; i = i + 1) {
+    for (i = 0; i < n; i = ++i) {
         arr[i] = i * i;
     }
 }
