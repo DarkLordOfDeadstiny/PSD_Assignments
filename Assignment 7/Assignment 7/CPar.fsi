@@ -39,6 +39,8 @@ type token =
   | FOR
   | PREINC
   | PREDEC
+  | QMARK
+  | COLON
   | CSTSTRING of (string)
   | NAME of (string)
   | CSTINT of (int)
@@ -82,6 +84,8 @@ type tokenId =
     | TOKEN_FOR
     | TOKEN_PREINC
     | TOKEN_PREDEC
+    | TOKEN_QMARK
+    | TOKEN_COLON
     | TOKEN_CSTSTRING
     | TOKEN_NAME
     | TOKEN_CSTINT

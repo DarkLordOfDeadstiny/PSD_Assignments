@@ -20,4 +20,11 @@ compile "examples/ex3";;
 compileToFile (fromFile "examples/ex5.c") "examples/ex5.out";;
 compile "examples/ex5";;
 
+compileToFile (fromFile "examples/ex5.c") "examples/ex5.out";;
+compile "examples/ex5";;
+
+compileToFile (fromFile "examples/7_5.c") "examples/7_5.out";;
+compile "examples/7_5";;
+
+compile "examples/8_5";;
 
