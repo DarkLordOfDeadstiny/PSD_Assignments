@@ -123,12 +123,12 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
       @ cStmt stmt1 varEnv funEnv @ [GOTO labend]
       @ [Label labelse] @ cStmt stmt2 varEnv funEnv
       @ [Label labend]    
-    |Ternary(e, stmt1, stmt2) -> 
+    |Ternary(e1, e2, e3) -> 
       let labelse = newLabel()
       let labend  = newLabel()
-      cExpr e varEnv funEnv @ [IFZERO labelse] 
-      @ cStmt stmt1 varEnv funEnv @ [GOTO labend]
-      @ [Label labelse] @ cStmt stmt2 varEnv funEnv
+      cExpr e1 varEnv funEnv @ [IFZERO labelse] 
+      @ cExpr e2 varEnv funEnv @ [GOTO labend]
+      @ [Label labelse] @ cExpr e3 varEnv funEnv
       @ [Label labend]
     | While(e, body) ->
       let labbegin = newLabel()
