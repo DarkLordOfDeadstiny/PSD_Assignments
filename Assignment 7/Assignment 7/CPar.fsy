@@ -23,7 +23,6 @@ let nl = CstI 10
 
 %right ASSIGN             /* lowest precedence */
 %nonassoc PRINT
-%left QMARK COLON
 %left SEQOR
 %left SEQAND
 %left EQ NE 
@@ -31,6 +30,7 @@ let nl = CstI 10
 %left PLUS MINUS
 %left TIMES DIV MOD 
 %right PREINC PREDEC
+%left QMARK COLON
 %nonassoc NOT AMP 
 %nonassoc LBRACK          /* highest precedence  */
 
