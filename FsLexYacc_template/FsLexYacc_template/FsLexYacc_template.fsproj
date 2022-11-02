@@ -8,13 +8,17 @@
 	<Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
 
 	<ItemGroup>
-		<None Include="test.fsx" />
-		<FsYacc Include="ExprPar.fsy">
-			<OtherFlags>--module Parser</OtherFlags>
+		<FsYacc Include="CPar.fsy">
+			<OtherFlags>--module CPar</OtherFlags>
 		</FsYacc>
-		<FsLex Include="ExprLex.fsl">
+		<FsLex Include="CLex.fsl">
 			<OtherFlags>--unicode</OtherFlags>
 		</FsLex>
+		<Compile Include="Absyn.fs" />
+		<Compile Include="CPar.fs" />
+		<Compile Include="CLex.fs" />
+		<Compile Include="Parse.fs" />
+		<None Include="test.fsx" />
 		<Compile Include="Program.fs" />
 	</ItemGroup>
 

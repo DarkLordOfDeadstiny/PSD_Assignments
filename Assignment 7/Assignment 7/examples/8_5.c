@@ -1,6 +1,4 @@
-void main(int n) {
-	
-	int x;
-   	x = (n > 0 ? 1 : 2);
-	print n;
+void main(int n)
+{
+	print n ? 2 : 3;
 }

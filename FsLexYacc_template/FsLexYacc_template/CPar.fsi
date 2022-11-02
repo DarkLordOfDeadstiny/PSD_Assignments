@@ -12,8 +12,6 @@ type token =
   | COMMA
   | ASSIGN
   | AMP
-  | PREINC
-  | PREDEC
   | NOT
   | SEQOR
   | SEQAND
@@ -31,8 +29,6 @@ type token =
   | CHAR
   | ELSE
   | IF
-  | QMARK
-  | COLON
   | INT
   | NULL
   | PRINT
@@ -40,7 +36,6 @@ type token =
   | RETURN
   | VOID
   | WHILE
-  | FOR
   | CSTSTRING of (string)
   | NAME of (string)
   | CSTINT of (int)
@@ -57,8 +52,6 @@ type tokenId =
     | TOKEN_COMMA
     | TOKEN_ASSIGN
     | TOKEN_AMP
-    | TOKEN_PREINC
-    | TOKEN_PREDEC
     | TOKEN_NOT
     | TOKEN_SEQOR
     | TOKEN_SEQAND
@@ -76,8 +69,6 @@ type tokenId =
     | TOKEN_CHAR
     | TOKEN_ELSE
     | TOKEN_IF
-    | TOKEN_QMARK
-    | TOKEN_COLON
     | TOKEN_INT
     | TOKEN_NULL
     | TOKEN_PRINT
@@ -85,7 +76,6 @@ type tokenId =
     | TOKEN_RETURN
     | TOKEN_VOID
     | TOKEN_WHILE
-    | TOKEN_FOR
     | TOKEN_CSTSTRING
     | TOKEN_NAME
     | TOKEN_CSTINT

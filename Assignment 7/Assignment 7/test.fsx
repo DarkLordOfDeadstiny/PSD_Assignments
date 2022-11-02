@@ -6,11 +6,11 @@
 #load "Machine.fs" 
 #load "Comp.fs"
 #load "ParseAndComp.fs"
+open ParseAndComp
 
 
 //fsharpi -r ~/fsharp/FsLexYacc.Runtime.dll Absyn.fs CPar.fs CLex.fs Parse.fs Machine.fs Comp.fs ParseAndComp.fs   
 
-open ParseAndComp;;
 compileToFile (fromFile "examples/ex11.c") "examples/ex11.out";;
 compile "examples/ex11";;
 

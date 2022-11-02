@@ -11,6 +11,6 @@ void main(int n) {
     arr3[1] = 2;
     arr3[2] = 3;
 	
-	print ++arr3[2];
+	print ++arr3[++1];
 	println;
 }
