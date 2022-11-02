@@ -23,6 +23,7 @@ let nl = CstI 10
 
 %right ASSIGN             /* lowest precedence */
 %nonassoc PRINT
+%left QMARK COLON
 %left SEQOR
 %left SEQAND
 %left EQ NE 

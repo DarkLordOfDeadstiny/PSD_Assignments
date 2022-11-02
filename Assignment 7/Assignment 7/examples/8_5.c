@@ -1,4 +1,4 @@
 void main(int n)
 {
-	print n ? 2 : 3;
+	print 0 < n ? 2 : 3;
 }
