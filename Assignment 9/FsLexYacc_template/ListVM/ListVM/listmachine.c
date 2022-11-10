@@ -471,32 +471,33 @@ void initheap() {
   freelist = &heap[0];
 }
 
+void mark(word* block) {
+    if (Color(block[0]) == Grey) {
+        Paint(block[0], Black);
+        int i;
+        for (i = 1; i <= Length(block[0]); i++)
+            if (inHeap((word*)block[i]))
+                mark((word*)block[i]);
+    }
+}
+
 void markPhase(word s[], word sp) {
   // Mark all roots:
   int i;
   for (i = 0; i <= sp; i++)
     if (inHeap((word*)s[i]))
-      Color(((word*)s[i])[-1]) = Grey;
+      Paint(((word*)s[i])[-1], Grey);
 
   // Mark all reachable blocks:
   int j;
-  for (j = 0; j < Length(s), j++) {
+  for (j = 0; j <= sp; j++) {
     word* p = (word*)s[j];
     if (inHeap(p)) {
-      mark(p)
-    } else {
-      Color(p) = White;
+      mark(p);
+    } 
+    else {
+      Paint(p[0], White);
     }
-  }
-}
-
-void mark(word* block) {
-  if (Color(block[0]) == Grey) {
-    Color(block[0]) = Black;
-    int i;
-    for (i = 1; i <= Length(block[0]); i++)
-      if (inHeap((word*)block[i]))
-        mark((word*)block[i]);
   }
 }
 
@@ -505,7 +506,10 @@ void sweepPhase() {
   word* prev = 0;
   while (p < afterHeap) {
     if (Color(p[0]) == Black)
-      Color(p[0]) = White;
+      Paint(p[0], White);
+    else if (Color(p[0]) == White) {
+        Paint(p[0], Blue);
+    }
     else if (Color(p[0]) == Grey) {
       printf("HEAP ERROR: Grey block at heap[" WORD_FMT "]\n", (word)(p - heap));
       exit(-1);
