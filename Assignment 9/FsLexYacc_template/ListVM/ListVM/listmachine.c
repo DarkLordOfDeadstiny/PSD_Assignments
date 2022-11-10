@@ -472,13 +472,57 @@ void initheap() {
 }
 
 void markPhase(word s[], word sp) {
-  printf("marking ...\n");
-  // TODO: Actually mark something
+  // Mark all roots:
+  int i;
+  for (i = 0; i <= sp; i++)
+    if (inHeap((word*)s[i]))
+      Color(((word*)s[i])[-1]) = Grey;
+
+  // Mark all reachable blocks:
+  int j;
+  for (j = 0; j < Length(s), j++) {
+    word* p = (word*)s[j];
+    if (inHeap(p)) {
+      mark(p)
+    } else {
+      Color(p) = White;
+    }
+  }
+}
+
+void mark(word* block) {
+  if (Color(block[0]) == Grey) {
+    Color(block[0]) = Black;
+    int i;
+    for (i = 1; i <= Length(block[0]); i++)
+      if (inHeap((word*)block[i]))
+        mark((word*)block[i]);
+  }
 }
 
 void sweepPhase() {
-  printf("sweeping ...\n");
-  // TODO: Actually sweep
+  word* p = heap;
+  word* prev = 0;
+  while (p < afterHeap) {
+    if (Color(p[0]) == Black)
+      Color(p[0]) = White;
+    else if (Color(p[0]) == Grey) {
+      printf("HEAP ERROR: Grey block at heap[" WORD_FMT "]\n", (word)(p - heap));
+      exit(-1);
+    }
+    else {
+      if (prev == 0)
+  freelist = p;
+      else
+  prev[1] = (word)p;
+      prev = p;
+    }
+    p = p + Length(p[0]) + 1;
+  }
+  if (prev == 0)
+    freelist = 0;
+  else
+    prev[1] = (word)0;
 }
 
 void collect(word s[], word sp) {
