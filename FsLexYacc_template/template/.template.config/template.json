@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Patrick B.M.",
+    "classifications": [ "F#", "FsLex", "FsYacc" ],
+    "identity": "FsLexYaccTemplate",
+    "name": "FsLexYacc Template",
+    "description": "A template for FsLexYacc projects that compile to .fs files on build",
+    "shortName": "fslexyacc",
+    "sourceName": "FsLexYacc_template",
+    "tags": {
+        "language": "F#",
+        "type": "solution"
+    },
+    "preferNameDirectory": true
+}
